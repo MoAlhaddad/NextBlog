@@ -3,6 +3,7 @@ import { assets, blog_data } from '@/Assets/assets'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
+
 const page = ({params}) => {
 
     const [data, setData] = useState(null)
