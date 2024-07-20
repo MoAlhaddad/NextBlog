@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 
 
-const page = () => {
+const Page = () => {
     const [image, setImage] = useState(false)
     const [data, setData] = useState({
         title:"",
@@ -78,4 +78,4 @@ const onSubmitHandler = async(e) => {
   )
 }
 
-export default page
+export default Page
