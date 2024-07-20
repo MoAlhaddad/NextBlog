@@ -2,6 +2,8 @@ import { blog_data } from '@/Assets/assets'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import BlogItem from './BlogItem'
+import {Tabs, Tab, Button} from "@nextui-org/react";
+
 
 const BlogList = () => {
     const [menu, setMenu] = useState("All");
@@ -18,20 +20,29 @@ const BlogList = () => {
     }, [])
 
   return (
-    <div>
-      <div className='flex justify-center gap-6 my-10'>
+   <div className="gap-4 grid grid-cols-4 sm:grid-cols-6">
+      <div>
+      <div className="flex w-full flex-col">
+      <Tabs aria-label="Options">
+<Tab>
 
-        <button onClick={()=> setMenu('All')} className={menu==="All"?'bg-black text-white py-1 px-4 rounded-sm': ""}>All</button>
-        <button onClick={()=> setMenu('Technology')} className={menu==="Technology"?'bg-black text-white py-1 px-4 rounded-sm': ""}>Technology</button>
-        <button onClick={()=> setMenu('Startup')} className={menu==="Startup"?'bg-black text-white py-1 px-4 rounded-sm': ""}>Startup</button>
-        <button onClick={()=> setMenu('Lifestyle')} className={menu==="Lifestyle"?'bg-black text-white py-1 px-4 rounded-sm': ""}>Lifestyle</button>
-      </div>
-      <div className='flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24'>
-        {blogs.filter((item) => menu==='All'? true: item.category===menu).map((item, index) => {
-            return <BlogItem key={index} id={item._id} image={item.image} title={item.title} description={item.description} category={item.category}/>
-        })}
-      </div>
+<Button onClick={()=> setMenu('All')} >All</Button>
+</Tab>
+<Tab>
+   <Button onClick={()=> setMenu('Technology')} >Technology</Button>
+   </Tab>
+     
+    </Tabs>
     </div>
+      </div>
+      
+      
+        {blogs.filter((item) => menu==='All'? true: item.category===menu).map((item, index) => {
+            return     <BlogItem key={index} id={item._id} image={item.image} title={item.title} description={item.description} category={item.category}/>
+        })}
+     
+    </div>
+    
   )
 }
 
