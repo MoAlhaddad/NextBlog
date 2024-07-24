@@ -7,11 +7,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   return (
-    <>
-    <ToastContainer theme="dark"/>
-    <Header/>
+    
+        <section className="h-full">
+            <ToastContainer theme="dark"/>
+            <Header/>
+      <div className="container mx-auto h-full">
+        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24"></div>
+
    <BlogList/>
    <Footer />
-    </>
+   
+   </div>
+   </section>
+    
   );
 }

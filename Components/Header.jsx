@@ -1,9 +1,14 @@
+"use client"
 import { assets } from '@/Assets/assets'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import Link from 'next/link';
+import { Button } from "./ui/button";
+import MobileNav from "./MobileNav";
+
+import Nav from "./Nav";
 
 const Header = () => {
 
@@ -24,34 +29,37 @@ const Header = () => {
     }
 
   return (
-    <div className='py-5 px-5 md:px-12 lg:px-28'>
-        <div className='flex justify-between items-center'>
-        <Link  href='/'>
-               
-             
-            <Image src={assets.logo} width={180} alt='' className='w-[130px] sm:w-auto' />
-            </Link>
-            <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_9px_#000000'>
+    <header className="py-8 xl:py-12">
+    <div className="container mx-auto flex justify-between items-center">
+        
+        <Link href="/">
+        <h1 className="text-4xl font-semibold">
+            Blogger<span className="text-accent">.</span>
+        </h1>
+       </Link>
+       {/* desktop nav */}
+
+       <div className="hidden xl:flex items-center gap-8">
+
+       <Nav />
+       <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_9px_#000000'>
                 <Image src={assets.arrow} alt='' />
                 <Link  href='/admin'>
                 Admin
                 </Link>
             </button>
-        </div>
-        <div className='text-center my-8 '>
-            <h1 className='text-3xl sm:text-5xl font-medium'>
-                Latest Blogs
-            </h1>
-            <p className='mt-10 max-w-[740px] m-auto text-xs sm:text-base'>
-                Tune in to the latest blogs of Web3 development and crypto market updates 
-            </p>
-            <form onSubmit={onSubmitHandler} className="flex justify-between max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border-black shadow-[-7px_7px_0px_#000000]"action="">
-                <input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" placeholder="enter your email" className="pl-4 outline-none" />
-                <button type='submit' className='border-l border-black py-4 px-4 sm:px-8 active:bg-gray-600  active:text-white'>Subscribe</button>
-            </form>
-        </div>
-      
-    </div>
+       </div>
+{/* mobile nav */}
+<div className="xl:hidden">
+<MobileNav/>
+
+</div>
+
+
+       </div>
+</header>
+    
+   
   )
 }
 

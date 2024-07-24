@@ -1,22 +1,23 @@
-import { assets } from '@/Assets/assets'
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import cn from "classnames";
+import Image from "next/image";
+import Link from "next/link";
+import { assets } from '@/Assets/assets';
+import { Sheet,SheetTrigger,SheetContent } from "../ui/sheet";
+import {CiMenuFries} from "react-icons/ci";
 
-const Sidebar = () => {
-  return (
-    <div className='flex flex-col bg-slate-100'>
-        <div className='px-2 sm:pl-14 py-3 border border-black'>
-           
-            <Link  href='/'>
-               
-             
-               <Image src={assets.logo} width={120} alt='' className='' />
-               </Link>
-        </div>
-        <div className="w-28 sm:w-80 h-[100vh] relative py-12 border border-black">
+
+const Sidebar = ({ collapsed, setCollapsed }) => {
+    // 👇 use the correct icon depending on the state.
+    
+    return (
+      <Sheet>
+    <SheetTrigger className="flex justify-center items-center bg-black">
+        <CiMenuFries className="text-[32px] text-accent" />
+        <p className="text-white">Open</p>
+    </SheetTrigger>
+    <SheetContent className="flex flex-col">
             
-            <div className='w-[50%] sm:w-[80%] absolute right-0'>
+            
             <Link href='/admin/addProduct' className="flex items-center border border-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]">
                 <Image src={assets.add_icon} alt='' width={28}/>
                 <p>Add Blogs</p>
@@ -29,12 +30,11 @@ const Sidebar = () => {
                 <Image src={assets.email_icon} alt='' width={28}/>
                 <p>Subscriptions</p>
             </Link>
-            </div>
             
-        </div>
-      
-    </div>
-  )
-}
-
-export default Sidebar
+            
+        </SheetContent>
+     
+      </Sheet>
+    );
+  };
+  export default Sidebar;
