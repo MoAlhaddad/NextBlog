@@ -13,7 +13,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       <Sheet>
     <SheetTrigger className="flex justify-center items-center bg-black">
         <CiMenuFries className="text-[32px] text-accent" />
-        <p className="text-white">Open</p>
+       
     </SheetTrigger>
     <SheetContent className="flex flex-col">
             
