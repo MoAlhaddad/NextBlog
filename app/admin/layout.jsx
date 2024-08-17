@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from "@/Components/ui/button";
 import Link from "next/link";
-
+import "@uploadthing/react/styles.css";
 export default function Layout({children}){
     return (
         <>
