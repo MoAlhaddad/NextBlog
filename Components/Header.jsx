@@ -38,7 +38,7 @@ const Header = () => {
                     </h1>
                 </Link>
                 {/* Desktop Navigation */}
-                <div className="hidden xl:flex items-center gap-4 lg:gap-8">
+                <div className="xl:flex md:hidden items-center gap-4 lg:gap-8">
                     <Nav />
                     <Link href='/admin'>
                         <button className='flex items-center gap-2 font-medium py-2 px-4 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_9px_#000000] hover:shadow-[-5px_5px_7px_#000000] transition-shadow'>
