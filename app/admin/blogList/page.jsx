@@ -55,7 +55,7 @@ const Page = () => {
             </thead>
             <tbody>
                 {blogs.map((item, index) => {
-                    return <BlogTableItem key={index} mongoId={item._id} title={item.title} author={item.author} authorImg={item.authorImg} date={item.date} deleteBlog={deleteBlog}/>
+                    return <BlogTableItem key={index} mongoId={item._id} title={item.title} author={item.author} authorImg={item.authorImg} date={item.date} image={item.image} deleteBlog={deleteBlog}/>
                 })}
                
             </tbody>
